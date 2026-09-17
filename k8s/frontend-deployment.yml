@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: college-frontend
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: college-frontend
+
+  template:
+    metadata:
+      labels:
+        app: college-frontend
+
+    spec:
+      containers:
+        - name: college-frontend
+
+          image: riteshbansode/college-frontend:2.0
+
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 80
